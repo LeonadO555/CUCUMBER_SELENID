@@ -7,15 +7,12 @@ import io.cucumber.java.en.When;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import wait.Wait;
 
 import java.util.concurrent.TimeUnit;
 
 public class SignIn {
     private WebDriver driver;
-    Wait wait;
 
     By emailField =By.xpath("//input[@placeholder='Email']");
     By passwordField =By.xpath("//input[@placeholder='Password']");
