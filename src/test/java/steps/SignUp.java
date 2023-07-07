@@ -10,7 +10,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import wait.Wait;
+
 
 import java.util.concurrent.TimeUnit;
 
@@ -28,7 +28,6 @@ public class SignUp {
     By addCourseText =By.xpath("//span[normalize-space()='Add course']");
     By userExistErrorMessage = By.xpath("//div[@class='error-message signup-error d-flex']");
 
-
     @Given("Navigate to SignUp Page")
     public void navigateToSignUpPage(){
         WebDriverManager.firefoxdriver().setup();
@@ -37,22 +36,13 @@ public class SignUp {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
-    @When("Sign Up valid data")
-    public void fillFormSignUp() {
+    @When("Sign Up valid data with fullName {string}, email {string}, and password {string}")
+    public void fillFormSignUp(String fullName, String email, String password) {
         click(selectRoleButton);
         click(selectRoleTeacher);
-        fillFieldSingUp(fullNameField);
-        fillFieldSingUp(emailField);
-        fillFieldSingUp(passwordField);
-        click(CheckboxIAgreeTerms);
-    }
-    @When("Sign Up exist User")
-    public void fillFormSingUpExistUser() {
-        click(selectRoleButton);
-        click(selectRoleTeacher);
-        fillFieldSignUpExistUser(fullNameField);
-        fillFieldSignUpExistUser(emailField);
-        fillFieldSignUpExistUser(passwordField);
+        fillFieldSingUp(fullNameField, fullName);
+        fillFieldSingUp(emailField, email);
+        fillFieldSingUp(passwordField, password);
         click(CheckboxIAgreeTerms);
     }
     @And("Click on Sign Up button")
@@ -65,27 +55,10 @@ public class SignUp {
         driver.findElement(userExistErrorMessage).isDisplayed();
         driver.quit();
     }
-    private void fillFieldSingUp(By locator) {
+    private void fillFieldSingUp(By locator, String value) {
         click(locator);
         driver.findElement(locator).clear();
-        if (locator.equals(fullNameField)) {
-            driver.findElement(locator).sendKeys(faker.name().name());
-        } else if (locator.equals(emailField)) {
-            driver.findElement(locator).sendKeys(faker.internet().emailAddress());
-        } else if (locator.equals(passwordField)) {
-            driver.findElement(locator).sendKeys(faker.internet().password());
-        }
-    }
-    private void fillFieldSignUpExistUser(By locator) {
-        click(locator);
-        driver.findElement(locator).clear();
-        if (locator.equals(fullNameField)) {
-            driver.findElement(locator).sendKeys("Roxanne");
-        } else if (locator.equals(emailField)) {
-            driver.findElement(locator).sendKeys("roxanne@example.com");
-        } else if (locator.equals(passwordField)) {
-            driver.findElement(locator).sendKeys("123456");
-        }
+        driver.findElement(locator).sendKeys(value);
     }
     private void click(By locator) {
         driver.findElement(locator).click();
