@@ -1,8 +1,9 @@
 package hooks;
 
+
 import com.codeborne.selenide.Selenide;
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
 
 import static com.codeborne.selenide.Selenide.*;
 
@@ -15,7 +16,7 @@ public class Hooks {
         clearBrowserCookies();
         clearBrowserLocalStorage();
         System.out.println("---Before method finished---");
-       Selenide.open("https://jere237.softr.app/sign-in");
+        Selenide.open("https://jere237.softr.app/sign-in");
 
     }
 
