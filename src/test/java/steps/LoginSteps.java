@@ -13,13 +13,6 @@ public class LoginSteps extends BaseSteps {
     String email = "roxanne@example.com";
     String password = "123456";
 
-  /* @Given("Navigate to Sign In Page")
-    public void navigateToSignInPage() {
-        Selenide.open("https://jere237.softr.app/sign-in");
-    }
-*/
-
-
     @When("^Fill fields valid data$")
     public void fillSingInForm() {
         loginPage.fillInput(loginPage.emailInput, email);
