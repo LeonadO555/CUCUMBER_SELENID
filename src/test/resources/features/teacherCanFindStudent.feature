@@ -1,4 +1,5 @@
 Feature: Teacher can find student
+
   @teacherCanFindStudent
   Scenario: Registered teacher can edit course
     Given Open main page "https://jere237.softr.app/"
