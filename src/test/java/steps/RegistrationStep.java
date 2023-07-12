@@ -1,6 +1,5 @@
 package steps;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -14,12 +13,12 @@ public class RegistrationStep extends BaseStep {
     String defaultUserName = "YouCanDeleteMe";
     String defaultPassword = "123456";
 
-    @Given("Open main page {string}")
+    @Given("Go to main page {string}")
     public void openMainPage(String string) {
         Selenide.open(string);
     }
 
-    @When("Click on signUpButton")
+    @When("Go to registration form")
     public void clickOnSignUpButton() {
         mainPage.signUpHeaderButton.click();
     }
@@ -29,30 +28,32 @@ public class RegistrationStep extends BaseStep {
         loginPage.selectRoleDropDown.click();
         loginPage.teacherRole.click();
     }
+
     @And("Fill Registration fields")
     public void fillRegistrationFields() {
         loginPage.fillField(loginPage.fullNameInput, defaultUserName);
         loginPage.fillField(loginPage.emailInput, email);
         loginPage.fillField(loginPage.passwordInput, defaultPassword);
     }
+
     @And("Click on checkbox: I agree to the Terms and Privacy Policy")
     public void clickOnCheckbox() {
         loginPage.checkBox.click();
     }
+
     @And("Click on signUp button")
     public void clickOnSignUp() {
         loginPage.signUpButton.click();
     }
-    @And ("Sign Out")
+
+    @And("Sign Out")
     public void signOut() {
-    loginPage.avatarButton.click();
-    loginPage.signOutButton.click();
+        loginPage.avatarButton.click();
+        loginPage.signOutButton.click();
     }
 
     @Then("User logged out")
     public void checkUserLoggedOut() {
-        mainPage.signUpHeaderButton.should(Condition.visible);
+        mainPage.checkUserLoggedOut();
     }
-
-
 }
