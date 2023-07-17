@@ -31,8 +31,8 @@ public class TeacherCanFindStudentStep extends BaseStep {
     @And("Fill authorization fields")
     public void fillAuthorizationFields() {
         LoginPage loginPage = new LoginPage();
-        loginPage.fillField(loginPage.emailInput, userEmail);
-        loginPage.fillField(loginPage.passwordInput, password);
+        loginPage.fillInput(loginPage.emailInput, userEmail);
+        loginPage.fillInput(loginPage.passwordInput, password);
         loginPage.clickOnSubmitButton();
     }
 
@@ -45,7 +45,7 @@ public class TeacherCanFindStudentStep extends BaseStep {
     @And("Fill input")
     public void fillInput() {
         StudentDirectoryPage studentDirectoryPage = new StudentDirectoryPage();
-        studentDirectoryPage.fillInput(studentName);
+        studentDirectoryPage.fillStudentName(studentName);
     }
 
     @And("Select student")

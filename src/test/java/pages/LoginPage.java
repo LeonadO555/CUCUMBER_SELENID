@@ -16,7 +16,7 @@ public class LoginPage extends MainPage {
     public final SelenideElement signOutButton = $x("//span[normalize-space()='Sign Out']");
     public final SelenideElement submitButton = $x("//a[@id='sw-sign-in-submit-btn']");
 
-    public void fillField(SelenideElement field, String text) {
+    public void fillInput(SelenideElement field, String text) {
         field.click();
         field.clear();
         field.sendKeys(text);

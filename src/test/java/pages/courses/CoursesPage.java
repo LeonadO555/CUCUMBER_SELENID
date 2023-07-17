@@ -7,7 +7,7 @@ import static com.codeborne.selenide.Selenide.$x;
 
 public class CoursesPage extends MainPage {
     public final SelenideElement searchInput = $x("//input[@id=':r0:']");
-    public final SelenideElement firstCourse = $x("(//a)[10]");
+    public final SelenideElement firstCourse = $x("(//a)[9]");
 
     public void fillSearchInput(String courseName) {
         searchInput.click();

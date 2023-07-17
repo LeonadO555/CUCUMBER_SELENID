@@ -2,7 +2,7 @@ Feature: Teacher can change course description
 
   @changeCourseDescription
   Scenario: Teacher can change course description
-    Given Open the main page "https://jere237.softr.app/"
+    Given Open the main page "https://erich416.softr.app/"
     When Go the to authorisation form
     And Register as existing teacher
     And Go to courses page
