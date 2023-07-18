@@ -31,9 +31,9 @@ public class RegistrationStep extends BaseStep {
 
     @And("Fill Registration fields")
     public void fillRegistrationFields() {
-        loginPage.fillField(loginPage.fullNameInput, defaultUserName);
-        loginPage.fillField(loginPage.emailInput, email);
-        loginPage.fillField(loginPage.passwordInput, defaultPassword);
+        loginPage.fillInput(loginPage.fullNameInput, defaultUserName);
+        loginPage.fillInput(loginPage.emailInput, email);
+        loginPage.fillInput(loginPage.passwordInput, defaultPassword);
     }
 
     @And("Click on checkbox: I agree to the Terms and Privacy Policy")

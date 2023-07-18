@@ -19,7 +19,7 @@ public class CourseInfoPage extends MainPage {
         editIcon.click();
     }
 
-    public void fillDescriptionField(String text) {
+    public void fillDescriptionInput(String text) {
         descriptionInput.click();
         descriptionInput.clear();
         descriptionInput.sendKeys(text);

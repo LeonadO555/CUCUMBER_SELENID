@@ -2,7 +2,7 @@ Feature: Registration New User
 
   @validRegistration
   Scenario: User click on signUp button and fill registration fields
-    Given Go to main page "https://jere237.softr.app/"
+    Given Go to main page "https://erich416.softr.app/"
     When Go to registration form
     And Select role
     And Fill Registration fields

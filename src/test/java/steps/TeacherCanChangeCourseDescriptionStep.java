@@ -34,8 +34,8 @@ public class TeacherCanChangeCourseDescriptionStep {
     @And("Register as existing teacher")
     public void registerAsExistingTeacher() {
         LoginPage loginPage = new LoginPage();
-        loginPage.fillField(loginPage.emailInput, userEmail);
-        loginPage.fillField(loginPage.passwordInput, password);
+        loginPage.fillInput(loginPage.emailInput, userEmail);
+        loginPage.fillInput(loginPage.passwordInput, password);
         loginPage.clickOnSubmitButton();
     }
 
@@ -56,7 +56,7 @@ public class TeacherCanChangeCourseDescriptionStep {
     public void editCourseDescription() {
         CourseInfoPage courseInfoPage = new CourseInfoPage();
         courseInfoPage.clickOnEditIcon();
-        courseInfoPage.fillDescriptionField(description);
+        courseInfoPage.fillDescriptionInput(description);
         courseInfoPage.clickOnSaveButton();
     }
 
